@@ -1,0 +1,3 @@
+[submodule "yagmail-sa-analysis"]
+	path = yagmail-sa-analysis
+	url = git@github.com:z0gSh1u/yagmail-sa-analysis.git

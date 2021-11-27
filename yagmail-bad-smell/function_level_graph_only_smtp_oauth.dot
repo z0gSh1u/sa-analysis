@@ -1,0 +1,76 @@
+digraph G {
+    graph [rankdir=LR, clusterrank="local"];
+    subgraph cluster_G {
+
+        graph [style="filled,rounded", fillcolor="#80808018", label=""];
+        subgraph cluster_yagmail__sender {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="yagmail.sender"];
+            yagmail__sender__SMTP [label="SMTP", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0"];
+            yagmail__sender__call_authorize_tokens [label="call_authorize_tokens", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0"];
+            yagmail__sender__call_refresh_token [label="call_refresh_token", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0"];
+            yagmail__sender__command_to_url [label="command_to_url", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0"];
+            yagmail__sender__generate_oauth2_string [label="generate_oauth2_string", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0"];
+            yagmail__sender__generate_permission_url [label="generate_permission_url", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0"];
+            yagmail__sender__get_authorization [label="get_authorization", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0"];
+            yagmail__sender__get_oauth2_info [label="get_oauth2_info", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0"];
+            yagmail__sender__get_oauth_string [label="get_oauth_string", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0"];
+            yagmail__sender__refresh_authorization [label="refresh_authorization", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0"];
+            yagmail__sender__url_format_params [label="url_format_params", style="filled", fillcolor="#ff9999b2", fontcolor="#000000", group="0"];
+            subgraph cluster_yagmail__sender__SMTP {
+
+                graph [style="filled,rounded", fillcolor="#80808018", label="yagmail.sender.SMTP"];
+                yagmail__sender__SMTP____del__ [label="__del__", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0"];
+                yagmail__sender__SMTP____enter__ [label="__enter__", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0"];
+                yagmail__sender__SMTP____exit__ [label="__exit__", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0"];
+                yagmail__sender__SMTP____init__ [label="__init__", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0"];
+                yagmail__sender__SMTP___attempt_send [label="_attempt_send", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0"];
+                yagmail__sender__SMTP___login [label="_login", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0"];
+                yagmail__sender__SMTP___login_oauth2 [label="_login_oauth2", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0"];
+                yagmail__sender__SMTP__close [label="close", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0"];
+                yagmail__sender__SMTP__connection [label="connection", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0"];
+                yagmail__sender__SMTP__feedback [label="feedback", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0"];
+                yagmail__sender__SMTP__get_oauth_string [label="get_oauth_string", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0"];
+                yagmail__sender__SMTP__handle_password [label="handle_password", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0"];
+                yagmail__sender__SMTP__login [label="login", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0"];
+                yagmail__sender__SMTP__prepare_send [label="prepare_send", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0"];
+                yagmail__sender__SMTP__send [label="send", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0"];
+                yagmail__sender__SMTP__send_unsent [label="send_unsent", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0"];
+                yagmail__sender__SMTP__set_logging [label="set_logging", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0"];
+                yagmail__sender__SMTP__starttls [label="starttls", style="filled", fillcolor="#ff6565b2", fontcolor="#000000", group="0"];
+            }
+        }
+    }
+        yagmail__sender__generate_permission_url -> yagmail__sender__command_to_url [style="solid",  color="#000000"];
+        yagmail__sender__generate_permission_url -> yagmail__sender__url_format_params [style="solid",  color="#000000"];
+        yagmail__sender__call_authorize_tokens -> yagmail__sender__command_to_url [style="solid",  color="#000000"];
+        yagmail__sender__call_refresh_token -> yagmail__sender__command_to_url [style="solid",  color="#000000"];
+        yagmail__sender__get_authorization -> yagmail__sender__call_authorize_tokens [style="solid",  color="#000000"];
+        yagmail__sender__get_authorization -> yagmail__sender__generate_permission_url [style="solid",  color="#000000"];
+        yagmail__sender__refresh_authorization -> yagmail__sender__call_refresh_token [style="solid",  color="#000000"];
+        yagmail__sender__get_oauth_string -> yagmail__sender__generate_oauth2_string [style="solid",  color="#000000"];
+        yagmail__sender__get_oauth_string -> yagmail__sender__refresh_authorization [style="solid",  color="#000000"];
+        yagmail__sender__get_oauth2_info -> yagmail__sender__get_authorization [style="solid",  color="#000000"];
+        yagmail__sender__SMTP____init__ -> yagmail__sender__SMTP__set_logging [style="solid",  color="#000000"];
+        yagmail__sender__SMTP____init__ -> yagmail__sender__get_oauth2_info [style="solid",  color="#000000"];
+        yagmail__sender__SMTP____exit__ -> yagmail__sender__SMTP__close [style="solid",  color="#000000"];
+        yagmail__sender__SMTP__send -> yagmail__sender__SMTP__login [style="solid",  color="#000000"];
+        yagmail__sender__SMTP__send -> yagmail__sender__SMTP__prepare_send [style="solid",  color="#000000"];
+        yagmail__sender__SMTP__send -> yagmail__sender__SMTP___attempt_send [style="solid",  color="#000000"];
+        yagmail__sender__SMTP___attempt_send -> yagmail__sender__SMTP____init__ [style="solid",  color="#000000"];
+        yagmail__sender__SMTP__send_unsent -> yagmail__sender__SMTP____init__ [style="solid",  color="#000000"];
+        yagmail__sender__SMTP__send_unsent -> yagmail__sender__SMTP___attempt_send [style="solid",  color="#000000"];
+        yagmail__sender__SMTP__login -> yagmail__sender__SMTP___login [style="solid",  color="#000000"];
+        yagmail__sender__SMTP__login -> yagmail__sender__SMTP___login_oauth2 [style="solid",  color="#000000"];
+        yagmail__sender__SMTP__login -> yagmail__sender__get_oauth2_info [style="solid",  color="#000000"];
+        yagmail__sender__SMTP___login -> yagmail__sender__SMTP__starttls [style="solid",  color="#000000"];
+        yagmail__sender__SMTP___login -> yagmail__sender__SMTP__handle_password [style="solid",  color="#000000"];
+        yagmail__sender__SMTP___login -> yagmail__sender__SMTP__connection [style="solid",  color="#000000"];
+        yagmail__sender__SMTP__handle_password -> yagmail__sender__SMTP__handle_password [style="solid",  color="#000000"];
+        yagmail__sender__SMTP__get_oauth_string -> yagmail__sender__SMTP__get_oauth_string [style="solid",  color="#000000"];
+        yagmail__sender__SMTP___login_oauth2 -> yagmail__sender__SMTP__connection [style="solid",  color="#000000"];
+        yagmail__sender__SMTP___login_oauth2 -> yagmail__sender__SMTP__starttls [style="solid",  color="#000000"];
+        yagmail__sender__SMTP___login_oauth2 -> yagmail__sender__SMTP__get_oauth_string [style="solid",  color="#000000"];
+        yagmail__sender__SMTP__feedback -> yagmail__sender__SMTP__send [style="solid",  color="#000000"];
+        yagmail__sender__SMTP____del__ -> yagmail__sender__SMTP__close [style="solid",  color="#000000"];
+    }

@@ -1,0 +1,75 @@
+digraph G {
+    graph [rankdir=LR, clusterrank="local"];
+    subgraph cluster_G {
+
+        graph [style="filled,rounded", fillcolor="#80808018", label=""];
+        yagmail [label="yagmail", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="0"];
+        yagmail__compat [label="yagmail.compat", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="1"];
+        yagmail__error [label="yagmail.error", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="2"];
+        yagmail__headers [label="yagmail.headers", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="3"];
+        yagmail__log [label="yagmail.log", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="4"];
+        yagmail__message [label="yagmail.message", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="5"];
+        yagmail__oauth2 [label="yagmail.oauth2", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="6"];
+        yagmail__password [label="yagmail.password", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="7"];
+        yagmail__sender [label="yagmail.sender\n(yagmail.SMTP)", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="8"];
+        yagmail__utils [label="yagmail.utils", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="9"];
+        yagmail__validate [label="yagmail.validate", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="10"];
+        subgraph cluster_yagmail__error {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="yagmail.error"];
+        }
+        subgraph cluster_yagmail__headers {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="yagmail.headers"];
+        }
+        subgraph cluster_yagmail__log {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="yagmail.log"];
+        }
+        subgraph cluster_yagmail__message {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="yagmail.message"];
+        }
+        subgraph cluster_yagmail__oauth2 {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="yagmail.oauth2"];
+        }
+        subgraph cluster_yagmail__password {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="yagmail.password"];
+        }
+        subgraph cluster_yagmail__sender {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="yagmail.sender"];
+
+        }
+        subgraph cluster_yagmail__utils {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="yagmail.utils"];
+        }
+        subgraph cluster_yagmail__validate {
+
+            graph [style="filled,rounded", fillcolor="#80808018", label="yagmail.validate"];
+        }
+    }
+
+        yagmail__headers -> yagmail__error [style="solid",  color="#000000"];
+        yagmail__headers -> yagmail__headers [style="solid",  color="#000000"];
+        yagmail__message -> yagmail__headers [style="solid",  color="#000000"];
+        yagmail__message -> yagmail__utils [style="solid",  color="#000000"];
+        yagmail__message -> yagmail__message [style="solid",  color="#000000"];
+        yagmail__oauth2 -> yagmail__oauth2 [style="solid",  color="#000000"];
+        yagmail__password -> yagmail__password [style="solid",  color="#000000"];
+        yagmail__sender -> yagmail__headers [style="solid",  color="#000000"];
+        yagmail__sender -> yagmail__utils [style="solid",  color="#000000"];
+        yagmail__sender -> yagmail__log [style="solid",  color="#000000"];
+        yagmail__sender -> yagmail__validate [style="solid",  color="#000000"];
+        yagmail__sender -> yagmail__message [style="solid",  color="#000000"];
+        yagmail__sender -> yagmail__password [style="solid",  color="#000000"];
+        yagmail__sender -> yagmail__oauth2 [style="solid",  color="#000000"];
+        yagmail__validate -> yagmail__error [style="solid",  color="#000000"];
+        yagmail -> yagmail__error [style="solid",  color="#000000"];
+        yagmail -> yagmail__sender [style="solid",  color="#000000"];
+        yagmail -> yagmail__password [style="solid",  color="#000000"];
+        yagmail -> yagmail__utils [style="solid",  color="#000000"];
+    }

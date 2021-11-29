@@ -1,9 +1,9 @@
 % TODO:
 %   - 添加封面
-%   - 完成总结
 
 \documentclass[UTF8,12pt,a4paper]{ctexart}
-\ctexset { section = { format={\Large \bfseries } } }
+\ctexset { section = { format={ \Large \bfseries } } }
+\ctexset{ bibname = \leftline{参考资料} }
 
 \usepackage{graphicx}
 \usepackage{geometry}
@@ -37,6 +37,7 @@
   tabsize=2
 }
 
+
 \title{软件需求分析、架构的4+1视图模型和可信性分析研究——以Yagmail邮件发送系统为例}
 \author{卓旭(212138)~李竞宇(212115)~李文炜(212079)}
 \date{2021年11月}
@@ -46,7 +47,7 @@
 \maketitle
 
     \begin{abstract}
-        Yagmail (\url{github.com/kootenpv/yagmail}) 是一个用于进行邮件发送的软件系统，使用Python语言编写且开源。
+        Yagmail \cite{yagmail} 是一个用于进行邮件发送的软件系统，使用Python语言编写且开源。
         其调用方式简单，功能齐全，结果可靠，被许多需要邮件发送功能
         的Python应用所集成。“邮件发送”对软件可信性的要求很高，
         如邮件内容格式要正确保留、发送成功率要高、等等。本文
@@ -160,7 +161,7 @@ Yagmail的吞吐量得以提升。另外，Yagmail库的大小仅约60KB，且�
 
 \subsection{可支持性(S)}
 
-在可维护性方面，Yagmail可随时通过Python的包管理工具pip进行更新，相关错误问题可及时通过Github Issue与开发者联系，获得维护修改。
+在可维护性方面，Yagmail可随时通过Python的包管理工具pip进行更新，相关错误问题可及时通过GitHub Issue与开发者联系，获得维护修改。
 
 在国际化（i18n）方面，Yagmail自身支持邮件内容按UTF-8编码，在不同语言之间具有较好的国际化兼容性。
 
@@ -295,7 +296,7 @@ Yagmail的实现语言为Python，使用MIT License分发。流行、稳健的�
 
     本小节，我们将对Yagmail具体是如何满足、保障上一小节所提到的各项可信性需求，进行分析说明。
     在具体分析Yagmail的可信性实现之前，有必要对它的各组件的依赖关系进行说明。我们借助Pyan工具
-    （\url{github.com/Technologicat/pyan}）：一款针对Python语言的静态分析、组件/函数调用图
+    \cite{pyan}：一款针对Python语言的静态分析、组件/函数调用图
     以及“define-use”链路绘制工具，对Yagmail进行组件图分析绘制。绘制层级到组件级而非函数级，
     图中的箭头表示“use”关系，“define”关系不在图中体现。
     
@@ -666,7 +667,7 @@ Yagmail的实现语言为Python，使用MIT License分发。流行、稳健的�
 \newpage
 \section{总结}
 
-    在本课程作业中，我们首先通过FURPS+对Yagmail软件系统进行了多方面的需求分析说明，以对
+    在本课程作业中，我们首先通过FURPS+模型对Yagmail软件系统进行了多方面的需求分析说明，以对
     该软件系统的整体功能形成认识与把握。接着，我们应用Kruchten的“4+1”视图模型，对Yagmail软件
     系统的软件架构进行了多角度的观察与分析。
     
@@ -677,18 +678,27 @@ Yagmail的实现语言为Python，使用MIT License分发。流行、稳健的�
     保障工作，整体可信性高，特别是软件架构的设计，对可信性起到了重要作用。在对软件架构进行
     负面的变异后，软件的可信性确实发生了降低，这更说明了好的软件架构对软件可信性的重要性。
 
-    通过本次实验，TODO
-
+    通过本次实验，我们对课堂所学知识有了更深入的消化吸收，并进行了实操应用。
+    特别是通过对Yagmail软件功能、结构和使用的分析，对需求的FURPS+分析模型，以及软件架构
+    的“4+1”视图模型的含义有了深入的了解，让之后的应用也更加得心应手。而在后面关于可信性
+    的分析实验中，我们深刻体会到了软件可信性的重要性，以及好的软件架构对可信性的关键性，
+    这将极大地指导我们日后的软件开发工作。
+    
+    
 \begin{thebibliography}{99}
-\addcontentsline{toc}{section}{参考文献}
-\bibitem{furps} Software Metrics: Establishing a Company-wide Program. Grady Robert, Caswell Deborah. Prentice Hall. 1987.
-\bibitem{fourplusone} Architectural Blueprints—The “4+1” View Model of Software Architecture. Philippe Kruchten. IEEE Software. 1995.
-\bibitem{researchreview} “可信软件基础研究”重大研究计划综述. 刘克. 中国科学基金. 2008. 
-\bibitem{thebook} 《软件架构理论与实践》. 李必信, 廖力, 王璐璐~等. 机械工业出版社. 2019.
-\bibitem{courseware} 《软件开发方法与技术》课程课件. 李必信. （内部资料）. 2021.
-\bibitem{opensource} 开源软件可信性评价方法. 孙晶, 刘丽丽. 计算机工程与设计. 2017.
-\bibitem{misc1} 基于多维质量属性偏好的可信服务选择. 吴晓娜, 李必信, 刘翠翠~等. 计算机应用与软件. 2012.
-\bibitem{misc2} 基于证据的软件过程可信度模型及评估方法. 王德鑫, 王青, 贺\hbox{\scalebox{0.6}[1]{吉}\kern-.2em\scalebox{0.6}[1]{力}}. 软件学报. 2017.
+\setlength{\itemsep}{-1.5mm}
+\addcontentsline{toc}{section}{参考资料}
+\bibitem{yagmail} kootenpv. Yagmail [CP/OL]. 2021. https://github.com/kootenpv/yagmail.
+\bibitem{furps} Grady Robert, Caswell Deborah. Software Metrics: Establishing a Company-wide Program [M]. Prentice Hall. 1987.
+\bibitem{fourplusone} Philippe Kruchten. Architectural Blueprints—The “4+1” View Model of Software Architecture [J]. IEEE Software. 1995.
+\bibitem{researchreview} 刘克. “可信软件基础研究”重大研究计划综述 [J]. 中国科学基金. 2008..
+\bibitem{thebook} 李必信, 廖力, 王璐璐~等. 《软件架构理论与实践》 [M]. 机械工业出版社. 2019.
+\bibitem{courseware} 李必信. 《软件开发方法与技术》课程课件 [EB/OL]. 2021. （内部资料）.
+\bibitem{pyan} Technologicat. Pyan [CP/OL]. 2021. https://github.com/Technologicat/pyan.
+\bibitem{opensource} 孙晶, 刘丽丽. 开源软件可信性评价方法 [J]. 计算机工程与设计. 2017.
+\bibitem{misc1} 吴晓娜, 李必信, 刘翠翠~等. 基于多维质量属性偏好的可信服务选择 [J]. 计算机应用与软件. 2012.
+\bibitem{misc2} 王德鑫, 王青, 贺\hbox{\scalebox{0.6}[1]{吉}\kern-.2em\scalebox{0.6}[1]{力}}.  基于证据的软件过程可信度模型及评估方法 [J]. 软件学报. 2017.
+
 \end{thebibliography}
 
 \end{document}
